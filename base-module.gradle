@@ -2,7 +2,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-parcelize'
-
+//base module that all other modules inherit their build dependencies from
+//does not contain ui specific dependencies
 android {
     compileSdk ProjectConfig.compileSdk
 

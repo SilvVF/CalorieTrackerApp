@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-parcelize'
 
+//contains all of the compose dependencies needed for the project
 android {
     compileSdk ProjectConfig.compileSdk
 
