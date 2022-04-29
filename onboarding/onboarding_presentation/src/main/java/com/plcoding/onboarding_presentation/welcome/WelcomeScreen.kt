@@ -13,10 +13,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.core_ui.LocalSpacing
 import com.plcoding.core.R
+import com.plcoding.core.navigation.Route
+import com.plcoding.core.util.UiEvent
 import com.plcoding.onboarding_presentation.components.ActionButton
 
 @Composable
 fun WelcomeScreen(
+    //navigation composable will receive events from callback
+    onNavigate: (UiEvent.Navigate) -> Unit
 ) {
     //gets the spacing from the coreUI package
     //core ui is included by default in the compose module Gradle build file
@@ -39,7 +43,7 @@ fun WelcomeScreen(
         ActionButton(
             text = stringResource(id = R.string.next),
             onClick = { //handle the callback
-                /*TODO*/
+                onNavigate(UiEvent.Navigate(Route.AGE))
             },
             modifier = Modifier.align(Alignment.CenterHorizontally) //center in width
         )
