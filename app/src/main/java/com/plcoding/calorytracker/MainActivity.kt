@@ -15,8 +15,12 @@ import androidx.navigation.compose.rememberNavController
 import com.plcoding.calorytracker.navigation.navigate
 import com.plcoding.calorytracker.ui.theme.CaloryTrackerTheme
 import com.plcoding.core.navigation.Route
+import com.plcoding.onboarding_presentation.gender.GenderScreen
 import com.plcoding.onboarding_presentation.welcome.WelcomeScreen
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.HiltAndroidApp
 
+@AndroidEntryPoint //need to tell hilt that it can see this
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +39,7 @@ class MainActivity : ComponentActivity() {
 
                     }
                     composable(route = Route.GENDER){
-
+                        GenderScreen(onNavigate = navController::navigate)
                     }
                     composable(route = Route.HEIGHT){
 
