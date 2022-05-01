@@ -7,6 +7,7 @@ import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import com.plcoding.core.data.preferences.DefaultPreferences
 import com.plcoding.core.domain.preferences.Preferences
+import com.plcoding.core.domain.use_case.FilterOutDigits
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -32,5 +33,11 @@ object AppModule {
         app: Application
     ): SharedPreferences {
         return app.getSharedPreferences("shared_pref", MODE_PRIVATE)
+    }
+
+    @Provides
+    @Singleton //provides the use case to filter digits
+    fun provideFilterOutDigitsUseCase(): FilterOutDigits{
+        return FilterOutDigits()
     }
 }
