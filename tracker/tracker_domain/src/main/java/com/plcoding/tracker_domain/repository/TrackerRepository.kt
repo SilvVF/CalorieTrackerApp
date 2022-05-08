@@ -10,6 +10,8 @@ import java.time.LocalDate
  *
  * doesn't define the implementation only shows what we need
  * allows the creation of fake implementation making testing easier
+ *
+ * Each function that can be performed in the repository should have a use case created
  */
 interface TrackerRepository {
 

@@ -1,0 +1,4 @@
+Core UI module contains all of the dependencies needed for jetpack compose in other modules that
+have UI presentation layers
+
+this file also contains the static dimensions used project wide to implement padding values

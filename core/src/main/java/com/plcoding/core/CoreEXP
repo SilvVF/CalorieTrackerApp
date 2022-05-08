@@ -1,0 +1,18 @@
+Core Module contains all of the dependencies needed across all modules and they can all
+inherit from this modules build gradle file
+
+This module also contains the model classes used in shared preferences and routes
+used in the projects compose navigation
+
+SHARED PREFERENCES
+
+Use cases -
+
+contains the use case for filtering digits from a string of numbers that
+can contain decimal numbers
+
+Util -
+
+contains Ui Event wrapper class
+contains UiText class that can be used to extract string resources to be displayed
+as thing like snack bars
