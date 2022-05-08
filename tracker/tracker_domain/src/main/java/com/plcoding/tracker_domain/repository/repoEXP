@@ -1,0 +1,14 @@
+
+
+Repository contains all of the function we need to be performed but does not implement
+the implementation happens in the data layer and is not exposed when calling the
+function from the repository
+
+the implementation can be found in the data layer
+
+Reason for using this is it abstracts the implementation from the caller
+also allows for easier testing by creating fake implementations that just feed back
+set data
+
+also contains a wrapper class containing a reference to all of the use cases to make the
+constructor of the viewModel less messy when injecting the use cases as dependencies

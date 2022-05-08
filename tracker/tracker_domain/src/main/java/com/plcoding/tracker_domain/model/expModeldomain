@@ -1,0 +1,12 @@
+
+
+Domain level models that represent some data layer data class
+
+These are used to separate things like entities and json response DTOs
+
+The domain layer classes can use other types of objects to hold the data
+such as sealed classes - more than just primitives the api and db don't parse this
+
+
+MAPPER CLASSES ARE LOCATED IN THE TRACKER DATA MODULE
+- maps these domain models to data layer entities and response objects

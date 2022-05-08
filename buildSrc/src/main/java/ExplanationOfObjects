@@ -1,0 +1,5 @@
+The buildsrc module contains all of the dependencies needed in the kts
+gradle files and Puts them in objects that can be referenced in every build.gradle.kts
+file allowing for easier writing of dependencies
+
+can be copy pasted to other projects using Kts gradle build files
