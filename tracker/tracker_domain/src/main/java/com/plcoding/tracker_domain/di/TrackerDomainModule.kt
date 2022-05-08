@@ -1,6 +1,6 @@
 package com.plcoding.tracker_domain.di
 
-import com.plcoding.core.domain.preferences.Preferences
+import com.plcoding.core.data.preferences.Preferences
 import com.plcoding.tracker_domain.repository.TrackerRepository
 import com.plcoding.tracker_domain.repository.use_cases.*
 import dagger.Module
