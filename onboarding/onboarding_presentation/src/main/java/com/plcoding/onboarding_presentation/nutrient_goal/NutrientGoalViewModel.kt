@@ -5,12 +5,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.plcoding.core.domain.preferences.Preferences
+import com.plcoding.core.data.preferences.Preferences
 import com.plcoding.core.domain.use_case.FilterOutDigits
 import com.plcoding.core.navigation.Route
 import com.plcoding.core.util.UiEvent
-import com.plcoding.core.util.UiText
 import com.plcoding.on_boarding_domain.use_cases.ValidateNutrients
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel

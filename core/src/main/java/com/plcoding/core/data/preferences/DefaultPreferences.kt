@@ -5,16 +5,15 @@ import com.plcoding.core.domain.model.ActivityLevel
 import com.plcoding.core.domain.model.Gender
 import com.plcoding.core.domain.model.GoalType
 import com.plcoding.core.domain.model.UserInfo
-import com.plcoding.core.domain.preferences.Preferences
-import com.plcoding.core.domain.preferences.Preferences.Companion.KEY_ACTIVITY_LEVEL
-import com.plcoding.core.domain.preferences.Preferences.Companion.KEY_AGE
-import com.plcoding.core.domain.preferences.Preferences.Companion.KEY_CARB_RATIO
-import com.plcoding.core.domain.preferences.Preferences.Companion.KEY_FAT_RATIO
-import com.plcoding.core.domain.preferences.Preferences.Companion.KEY_GENDER
-import com.plcoding.core.domain.preferences.Preferences.Companion.KEY_GOAL_TYPE
-import com.plcoding.core.domain.preferences.Preferences.Companion.KEY_HEIGHT
-import com.plcoding.core.domain.preferences.Preferences.Companion.KEY_PROTEIN_RATIO
-import com.plcoding.core.domain.preferences.Preferences.Companion.KEY_WEIGHT
+import com.plcoding.core.data.preferences.Preferences.Companion.KEY_ACTIVITY_LEVEL
+import com.plcoding.core.data.preferences.Preferences.Companion.KEY_AGE
+import com.plcoding.core.data.preferences.Preferences.Companion.KEY_CARB_RATIO
+import com.plcoding.core.data.preferences.Preferences.Companion.KEY_FAT_RATIO
+import com.plcoding.core.data.preferences.Preferences.Companion.KEY_GENDER
+import com.plcoding.core.data.preferences.Preferences.Companion.KEY_GOAL_TYPE
+import com.plcoding.core.data.preferences.Preferences.Companion.KEY_HEIGHT
+import com.plcoding.core.data.preferences.Preferences.Companion.KEY_PROTEIN_RATIO
+import com.plcoding.core.data.preferences.Preferences.Companion.KEY_WEIGHT
 
 //class defines the implementation of storing the preferences - Using shared preferences
 //contains the function to get the user info object that stores all of the shared preferences
@@ -101,6 +100,19 @@ return: returns a user info object containing all of the set shared preferences 
             carbRatio = carbRatio,
             proteinRatio = proteinRatio,
             fatRatio = fatRatio,
+        )
+    }
+
+    override fun saveShouldShowOnboarding(shouldShow: Boolean) {
+        sharedPref.edit()
+            .putBoolean(Preferences.KEY_SHOULD_SHOW_ONBOARDING, shouldShow)
+            .apply()
+    }
+
+    override fun loadShouldShowOnboarding(): Boolean {
+        return sharedPref.getBoolean(
+            Preferences.KEY_SHOULD_SHOW_ONBOARDING,
+            true
         )
     }
 }

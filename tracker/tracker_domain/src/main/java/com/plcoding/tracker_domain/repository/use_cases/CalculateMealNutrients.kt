@@ -4,7 +4,7 @@ import com.plcoding.core.domain.model.ActivityLevel
 import com.plcoding.core.domain.model.Gender
 import com.plcoding.core.domain.model.GoalType
 import com.plcoding.core.domain.model.UserInfo
-import com.plcoding.core.domain.preferences.Preferences
+import com.plcoding.core.data.preferences.Preferences
 import com.plcoding.tracker_domain.model.MealType
 import com.plcoding.tracker_domain.model.TrackedFood
 import kotlin.math.roundToInt

@@ -3,11 +3,9 @@ package com.plcoding.onboarding_presentation.weight
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Modifier
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.plcoding.core.domain.preferences.Preferences
-import com.plcoding.core.domain.use_case.FilterOutDigits
+import com.plcoding.core.data.preferences.Preferences
 import com.plcoding.core.navigation.Route
 import com.plcoding.core.util.UiEvent
 import com.plcoding.core.util.UiText
