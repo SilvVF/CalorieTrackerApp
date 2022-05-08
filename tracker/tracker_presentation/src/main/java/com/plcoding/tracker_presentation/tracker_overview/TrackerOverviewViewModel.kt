@@ -36,9 +36,9 @@ class TrackerOverviewViewModel @Inject constructor(
         preferences.saveShouldShowOnboarding(false)
     }
 
-    fun onEvent(event: TrackerOverviewEvents) {
+    fun onEvent(event: TrackerOverviewEvent) {
         when (event) {
-            is TrackerOverviewEvents.OnAddFoodClick -> {
+            is TrackerOverviewEvent.OnAddFoodClick -> {
                 viewModelScope.launch {
                     _uiEvent.send(
                         UiEvent.Navigate(
@@ -51,25 +51,25 @@ class TrackerOverviewViewModel @Inject constructor(
                     )
                 }
             }
-            is TrackerOverviewEvents.OnDeleteTrackedFoodClick -> {
+            is TrackerOverviewEvent.OnDeleteTrackedFoodClick -> {
                 viewModelScope.launch {
                     trackerUseCases.deleteTrackedFood(event.trackedFood)
                     refreshFoods()
                 }
             }
-            is TrackerOverviewEvents.OnNextDayClick -> {
+            is TrackerOverviewEvent.OnNextDayClick -> {
                 state = state.copy(
                     date = state.date.plusDays(1)
                 )
                 refreshFoods()
             }
-            is TrackerOverviewEvents.OnPreviousDayClick -> {
+            is TrackerOverviewEvent.OnPreviousDayClick -> {
                 state = state.copy(
                     date = state.date.minusDays(1)
                 )
                 refreshFoods()
             }
-            is TrackerOverviewEvents.OnToggleMealClick -> {
+            is TrackerOverviewEvent.OnToggleMealClick -> {
                 state = state.copy(
                     meals = state.meals.map {
                         if(it.name == event.meal.name) {
