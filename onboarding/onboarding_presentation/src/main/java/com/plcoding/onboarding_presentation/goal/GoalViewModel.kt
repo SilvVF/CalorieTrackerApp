@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.plcoding.core.domain.model.GoalType
 import com.plcoding.core.data.preferences.Preferences
-import com.plcoding.core.navigation.Route
 import com.plcoding.core.util.UiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
@@ -37,7 +36,7 @@ class GoalViewModel @Inject constructor(
     fun onNextClick(){
         viewModelScope.launch {
             preferences.saveGoalType(selectedGoalType)
-            _uiEvent.send(UiEvent.Navigate(Route.NUTRIENT_GOAL)) //navigate to next screen
+            _uiEvent.send(UiEvent.Success) //navigate to next screen
         }
     }
 }
