@@ -12,8 +12,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.core_ui.LocalSpacing
-import com.plcoding.core.domain.model.ActivityLevel
-import com.plcoding.core.domain.model.Gender
 import com.plcoding.core.domain.model.GoalType
 import com.plcoding.core.util.UiEvent
 import com.plcoding.onboarding_presentation.R
@@ -23,7 +21,7 @@ import kotlinx.coroutines.flow.collect
 
 @Composable
 fun GoalScreen(
-    onNavigate: (UiEvent.Navigate) -> Unit, //callback to the ui event in viewModel
+    onNextClick: () -> Unit, //callback to the ui event in viewModel
     viewModel: GoalViewModel = hiltViewModel(),
 ) {
     val spacing = LocalSpacing.current
@@ -31,7 +29,7 @@ fun GoalScreen(
     LaunchedEffect(key1 = true){
         viewModel.uiEvent.collect { event -> //observes the uiEvents
             when(event){
-                is UiEvent.Navigate -> onNavigate(event)
+                is UiEvent.Success -> onNextClick()
                 else -> Unit
             }
         }

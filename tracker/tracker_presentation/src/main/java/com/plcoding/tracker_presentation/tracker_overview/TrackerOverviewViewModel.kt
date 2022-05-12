@@ -6,7 +6,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.plcoding.core.data.preferences.Preferences
-import com.plcoding.core.navigation.Route
 import com.plcoding.core.util.UiEvent
 import com.plcoding.tracker_domain.repository.use_cases.TrackerUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -33,24 +32,12 @@ class TrackerOverviewViewModel @Inject constructor(
     private var getFoodsForDateJob: Job? = null
 
     init { //only gets preferences on first launch
+        refreshFoods()
         preferences.saveShouldShowOnboarding(false)
     }
 
     fun onEvent(event: TrackerOverviewEvent) {
         when (event) {
-            is TrackerOverviewEvent.OnAddFoodClick -> {
-                viewModelScope.launch {
-                    _uiEvent.send(
-                        UiEvent.Navigate(
-                            route = Route.SEARCH
-                                    + "/${event.meal.mealType.name}"
-                                    + "/${state.date.dayOfMonth}"
-                                    + "/${state.date.month.value}"
-                                    + "/${state.date.year}"
-                        )
-                    )
-                }
-            }
             is TrackerOverviewEvent.OnDeleteTrackedFoodClick -> {
                 viewModelScope.launch {
                     trackerUseCases.deleteTrackedFood(event.trackedFood)
@@ -94,6 +81,8 @@ class TrackerOverviewViewModel @Inject constructor(
                     proteinGoal = nutrientsResult.proteinGoal,
                     fatGoal = nutrientsResult.fatGoal,
                     trackedFoods = foods,
+                    totalCalories = nutrientsResult.totalCalories,
+                    caloriesGoal = nutrientsResult.caloriesGoal,
                     meals = state.meals.map { //updating the map of all of the meal nutrients
                         val nutrientsForMeal =
                             nutrientsResult.mealNutrients[it.mealType]

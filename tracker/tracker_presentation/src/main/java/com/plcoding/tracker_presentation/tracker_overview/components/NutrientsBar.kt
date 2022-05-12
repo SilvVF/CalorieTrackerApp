@@ -13,6 +13,7 @@ import com.example.core_ui.CarbColor
 import com.example.core_ui.FatColor
 import com.example.core_ui.ProteinColor
 
+
 @Composable
 fun NutrientsBar(
     carbs: Int,
@@ -23,7 +24,7 @@ fun NutrientsBar(
     modifier: Modifier = Modifier
 ) {
     val background = MaterialTheme.colors.background
-    val caloriesExceededColor = MaterialTheme.colors.error
+    val caloriesExceedColor = MaterialTheme.colors.error
     val carbWidthRatio = remember {
         Animatable(0f)
     }
@@ -33,34 +34,34 @@ fun NutrientsBar(
     val fatWidthRatio = remember {
         Animatable(0f)
     }
-    LaunchedEffect(key1 = carbs){
+    LaunchedEffect(key1 = carbs) {
         carbWidthRatio.animateTo(
             targetValue = ((carbs * 4f) / calorieGoal)
         )
     }
-    LaunchedEffect(key1 = protein){
-        carbWidthRatio.animateTo(
+    LaunchedEffect(key1 = protein) {
+        proteinWidthRatio.animateTo(
             targetValue = ((protein * 4f) / calorieGoal)
         )
     }
-    LaunchedEffect(key1 = fat){
-        carbWidthRatio.animateTo(
+    LaunchedEffect(key1 = fat) {
+        fatWidthRatio.animateTo(
             targetValue = ((fat * 9f) / calorieGoal)
         )
     }
-    Canvas(modifier = modifier){
-        if (calories <= calorieGoal) {
+    Canvas(modifier = modifier) {
+        if(calories <= calorieGoal) {
             val carbsWidth = carbWidthRatio.value * size.width
             val proteinWidth = proteinWidthRatio.value * size.width
             val fatWidth = fatWidthRatio.value * size.width
-            drawRoundRect( //white background bar
+            drawRoundRect(
                 color = background,
                 size = size,
                 cornerRadius = CornerRadius(100f)
             )
             drawRoundRect(
                 color = FatColor,
-                size = Size( //last color gets added on to other width but drawn first
+                size = Size(
                     width = carbsWidth + proteinWidth + fatWidth,
                     height = size.height
                 ),
@@ -84,7 +85,7 @@ fun NutrientsBar(
             )
         } else {
             drawRoundRect(
-                color = caloriesExceededColor,
+                color = caloriesExceedColor,
                 size = size,
                 cornerRadius = CornerRadius(100f)
             )

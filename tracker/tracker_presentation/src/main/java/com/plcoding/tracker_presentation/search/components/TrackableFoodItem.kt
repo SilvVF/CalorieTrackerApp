@@ -1,6 +1,5 @@
 package com.plcoding.tracker_presentation.search.components
 
-import android.inputmethodservice.Keyboard
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -27,6 +26,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.LastBaseline
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -140,6 +140,7 @@ fun TrackableFoodItem(
                         value = trackableFoodUiState.amount,
                         onValueChange = onAmountChanged,
                         keyboardOptions = KeyboardOptions(
+                            keyboardType = KeyboardType.Number,
                             imeAction = if (trackableFoodUiState.amount.isNotBlank()) {
                                 ImeAction.Done
                             } else ImeAction.Default,

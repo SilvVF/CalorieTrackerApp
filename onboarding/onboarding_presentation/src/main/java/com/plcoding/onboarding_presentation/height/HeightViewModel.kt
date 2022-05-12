@@ -8,7 +8,6 @@ import androidx.lifecycle.viewModelScope
 import com.plcoding.core.domain.model.Gender
 import com.plcoding.core.data.preferences.Preferences
 import com.plcoding.core.domain.use_case.FilterOutDigits
-import com.plcoding.core.navigation.Route
 import com.plcoding.core.util.UiEvent
 import com.plcoding.core.util.UiText
 import com.plcoding.onboarding_presentation.R
@@ -50,7 +49,7 @@ class HeightViewModel @Inject constructor(
                 return@launch
             }
             preferences.saveHeight(heightNumber)
-            _uiEvent.send(UiEvent.Navigate(Route.WEIGHT))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 }

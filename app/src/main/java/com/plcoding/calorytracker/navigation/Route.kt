@@ -1,4 +1,4 @@
-package com.plcoding.core.navigation
+package com.plcoding.calorytracker.navigation
 
 //contains the routes that will be used when navigation from one composable to another
 // instead of hard coding strings use the object to prevent typos
